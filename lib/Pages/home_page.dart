@@ -3,17 +3,18 @@ import "package:flutter/material.dart";
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final String numApp = "First";
+    const String numApp = "First";
     return Scaffold(
       appBar: AppBar(
-        title: Text("Catalog App"),
+        title: const Text("Catalog App"),
       ),
       body: Center(
+        // ignore: avoid_unnecessary_containers
         child: Container(
-          child: Text("Welcome to the $numApp Flutter App."),
+          child: const Text("Welcome to the $numApp Flutter App."),
         ),
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(),
     );
   }
 }
