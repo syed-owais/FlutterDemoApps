@@ -1,3 +1,4 @@
+import 'package:first_app/widget/drawer.dart';
 import "package:flutter/material.dart";
 
 class HomePage extends StatelessWidget {
@@ -14,7 +15,7 @@ class HomePage extends StatelessWidget {
           child: const Text("Welcome to the $numApp Flutter App."),
         ),
       ),
-      drawer: const Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }
