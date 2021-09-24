@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Mythemes {
+class MyThemes {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
         primarySwatch: Colors.red,
         fontFamily: GoogleFonts.lato().fontFamily,
