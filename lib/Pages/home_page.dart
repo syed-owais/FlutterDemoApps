@@ -41,13 +41,44 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.all(14.0),
         child: (Catalog.items.isNotEmpty)
-            ? ListView.builder(
-                itemCount: Catalog.items.length,
+            ? GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 8.0,
+                  crossAxisSpacing: 8.0,
+                ),
                 itemBuilder: (context, index) {
-                  return ItemWidget(
-                    item: Catalog.items[index],
+                  final item = Catalog.items[index];
+                  return Card(
+                    clipBehavior: Clip.antiAlias,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    child: GridTile(
+                      header: Container(
+                        child: Text(
+                          item.name,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                        ),
+                      ),
+                      child: Image.network(item.img),
+                      footer: Container(
+                        child: Text(
+                          "\$" + item.price.toString(),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
                   );
                 },
+                itemCount: Catalog.items.length,
               )
             : Center(child: CircularProgressIndicator()),
       ),
