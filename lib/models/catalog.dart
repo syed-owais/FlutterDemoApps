@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class Items {
   final int id;
   final String name;
@@ -15,19 +13,28 @@ class Items {
       required this.price,
       required this.color,
       required this.img});
+
+  factory Items.fromMap(Map<String, dynamic> map) {
+    return Items(
+      id: map["id"],
+      name: map["name"],
+      desc: map["desc"],
+      price: map["price"],
+      color: map["color"],
+      img: map["img"],
+    );
+  }
+
+  toMap() => {
+        "id": id,
+        "name": name,
+        "desc": desc,
+        "price": price,
+        "color": color,
+        "img": img,
+      };
 }
 
 class Catalog {
-  static final items = [
-    Items(
-      id: 1,
-      name: "Samsung Galaxy Note 20",
-      desc:
-          "Glass front (Gorilla Victus Glass), glass back (Gorilla Victus Glass), stainless steel frame",
-      price: 1360,
-      color: "#d0a39d",
-      img:
-          "https://specifications-pro.com/wp-content/uploads/2020/07/Samsung-Galaxy-Note-20-Ultra-2-600x600.jpg",
-    )
-  ];
+  static List<Items> items = [];
 }
