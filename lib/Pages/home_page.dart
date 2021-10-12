@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:first_app/models/catalog.dart';
+import 'package:first_app/utils/routes.dart';
 import 'package:first_app/widget/home_wiget/catalog_header.dart';
 import 'package:first_app/widget/home_wiget/catalog_list.dart';
 import 'package:first_app/widget/themes.dart';
+import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -37,7 +39,12 @@ class _HomePageState extends State<HomePage> {
     //final dummyList = List.generate(50, (index) => Catalog.items[0]);
     const String numApp = "First";
     return Scaffold(
-      backgroundColor: MyThemes.creamColor,
+      backgroundColor: context.theme.canvasColor,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartPage),
+        child: Icon(CupertinoIcons.cart, color: Colors.white),
+        backgroundColor: context.theme.buttonColor,
+      ),
       body: SafeArea(
         child: Container(
           padding: Vx.m32,
