@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../themes.dart';
 import 'catalog_image.dart';
 
 class CatalogList extends StatelessWidget {
@@ -14,7 +13,7 @@ class CatalogList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: Catalog.items.length,
       itemBuilder: (context, index) {
-        final catalog = Catalog.items[index];
+        final catalog = Catalog.getItemByPosition(index);
         return InkWell(
           onTap: () => Navigator.push(
               context,
