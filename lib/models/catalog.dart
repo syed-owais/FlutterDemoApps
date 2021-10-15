@@ -36,10 +36,15 @@ class Items {
 }
 
 class Catalog {
+  static final catalog = Catalog._internal();
+
+  Catalog._internal();
+  factory Catalog() => catalog;
+
   static List<Items> items = [];
 
-  static Items getItemById(int id) =>
+  Items getItemById(int id) =>
       items.firstWhere((element) => element.id == id, orElse: null);
 
-  static Items getItemByPosition(int pos) => items[pos];
+  Items getItemByPosition(int pos) => items[pos];
 }
