@@ -1,4 +1,5 @@
 import 'package:first_app/models/catalog.dart';
+import 'package:first_app/widget/home_wiget/add_to_cart.dart';
 import 'package:first_app/widget/themes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,14 +24,7 @@ class HomeDetail extends StatelessWidget {
               .color(MyThemes.defaultThemeColor)
               .bold
               .make(),
-          ElevatedButton(
-            onPressed: () {},
-            child: Icon(CupertinoIcons.cart_badge_plus),
-            style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(context.theme.buttonColor),
-                shape: MaterialStateProperty.all(StadiumBorder())),
-          ).wh(100, 45)
+          AddToCart(catalog: catalog).wh(100, 45)
         ],
       ).p32().backgroundColor(context.cardColor),
       body: SafeArea(

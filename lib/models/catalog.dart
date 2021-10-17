@@ -36,11 +36,6 @@ class Items {
 }
 
 class Catalog {
-  static final catalog = Catalog._internal();
-
-  Catalog._internal();
-  factory Catalog() => catalog;
-
   static List<Items> items = [];
 
   Items getItemById(int id) =>

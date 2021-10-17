@@ -1,11 +1,9 @@
+import 'package:first_app/core/store.dart';
+import 'package:velocity_x/velocity_x.dart';
+
 import 'package:first_app/models/catalog.dart';
 
 class CartModel {
-  static final cartModel = CartModel._internal();
-
-  CartModel._internal();
-  factory CartModel() => cartModel;
-
   //catalog field
   late Catalog _catalog;
 
@@ -35,5 +33,14 @@ class CartModel {
   // Remove item
   void remove(Items item) {
     _itemIds.remove(item.id);
+  }
+}
+
+class AddMutation extends VxMutation<Mystore> {
+  final Items item;
+  AddMutation(this.item);
+  @override
+  perform() {
+    store!.cart._itemIds.add(item.id);
   }
 }
